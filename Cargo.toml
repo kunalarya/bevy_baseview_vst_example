@@ -1,0 +1,25 @@
+[package]
+name = "bevy_baseview_vst"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# baseview = { path = "../baseview" }
+baseview = { git = "https://github.com/RustAudio/baseview.git", rev = "eae4033e7d2cc9c31ccaa2794d5d08eedf2f510c" }
+# bevy = { path = "../bevy", version = "0.8.*" }
+bevy = { version = "0.8.*" }
+# bevy_baseview_plugin = { path = "../bevy_baseview_plugin/bevy_baseview_plugin" }
+bevy_baseview_plugin = { git = "https://github.com/kunalarya/bevy_baseview_plugin.git", rev = "b5d1a1f0b43b0667b31619e03282ecd89f049e49" }
+bevy_embedded_assets = { version = "0.4.*" }
+crossbeam = { version = "0.8.*" }
+crossbeam-channel = { version = "0.5.*" }
+log = "0.4.*"
+raw-window-handle = "0.4.2"
+simplelog = "0.12.*"
+vst = "0.3"
+
+[lib]
+name = "BaseviewDemo"
+crate-type = ["cdylib"]

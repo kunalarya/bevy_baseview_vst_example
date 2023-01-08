@@ -1,0 +1,8 @@
+/target
+/Cargo.lock
+run.sh
+osx_vst_bundler.sh
+*~
+*.swp
+*.swo
+.DS_Store
