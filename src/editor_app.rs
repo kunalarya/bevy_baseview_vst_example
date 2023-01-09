@@ -205,7 +205,7 @@ fn knob_activated(
         };
 
         let delta = start - cursor_position.0;
-        let pct = (delta.y / wnd.height()) as f64;
+        let pct = (delta.y / (wnd.height() / 1.5)) as f64;
 
         // TODO: Factor this out into a separate system
         let current_gain = gain_value.current;
