@@ -273,7 +273,7 @@ dependencies = [
 [[package]]
 name = "bevy_baseview_plugin"
 version = "0.1.0"
-source = "git+https://github.com/kunalarya/bevy_baseview_plugin.git?rev=b5d1a1f0b43b0667b31619e03282ecd89f049e49#b5d1a1f0b43b0667b31619e03282ecd89f049e49"
+source = "git+https://github.com/kunalarya/bevy_baseview_plugin.git?rev=9be4272607487a285341babfbe13ea248be2222a#9be4272607487a285341babfbe13ea248be2222a"
 dependencies = [
  "baseview",
  "bevy",
