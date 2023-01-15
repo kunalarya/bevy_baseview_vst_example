@@ -11,7 +11,7 @@ baseview = { git = "https://github.com/RustAudio/baseview.git", rev = "eae4033e7
 # bevy = { path = "../bevy", version = "0.8.*" }
 bevy = { version = "0.8.*" }
 # bevy_baseview_plugin = { path = "../bevy_baseview_plugin/bevy_baseview_plugin" }
-bevy_baseview_plugin = { git = "https://github.com/kunalarya/bevy_baseview_plugin.git", rev = "b5d1a1f0b43b0667b31619e03282ecd89f049e49" }
+bevy_baseview_plugin = { git = "https://github.com/kunalarya/bevy_baseview_plugin.git", rev = "9be4272607487a285341babfbe13ea248be2222a" }
 bevy_embedded_assets = { version = "0.4.*" }
 crossbeam = { version = "0.8.*" }
 crossbeam-channel = { version = "0.5.*" }
