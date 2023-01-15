@@ -63,7 +63,7 @@ struct DragState {
 }
 
 #[derive(Debug, Default, Clone)]
-struct CursorPosition(Vec2);
+struct CursorPosition(Option<Vec2>);
 
 #[derive(Debug, Default, Clone)]
 struct GainValue {
@@ -156,7 +156,7 @@ fn idle(
             return;
         }
         log::debug!("Setting state to AdjustingKnob");
-        drag_state.start = Some(cursor_position.0);
+        drag_state.start = cursor_position.0;
     }
 }
 
@@ -194,17 +194,18 @@ fn knob_activated(
                 return;
             }
         };
-
-        // compute delta
-        let start = match drag_state.start {
-            Some(start) => start,
-            None => {
-                log::error!("drag_state.start is None; expected starting coords");
-                return;
-            }
+        // if we haven't received the cursor position, then start and cursor_position may be None
+        let cur_cursor_pos = match cursor_position.0 {
+            Some(pos) => pos,
+            None => return,
         };
 
-        let delta = start - cursor_position.0;
+        if drag_state.start.is_none() {
+            drag_state.start = cursor_position.0;
+        }
+        let start = drag_state.start.unwrap();
+
+        let delta = start - cur_cursor_pos;
         let pct = (delta.y / (wnd.height() / 1.5)) as f64;
 
         // TODO: Factor this out into a separate system
@@ -220,7 +221,7 @@ fn cursor_position(
     mut cursor_moved_events: EventReader<CursorMoved>,
 ) {
     for event in cursor_moved_events.iter() {
-        last_cursor_pos.0 = event.position;
+        last_cursor_pos.0 = Some(event.position);
     }
 }
 
